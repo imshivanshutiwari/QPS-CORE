@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package qps;
+
+// Sensor input from Kafka/client
+message SensorInput {
+  string sensor_id   = 1;
+  int64  timestamp   = 2;   // Unix nanoseconds
+  double mag_x       = 3;
+  double mag_y       = 4;
+  double mag_z       = 5;
+  double quality     = 6;   // 0.0–1.0
+  double latitude    = 7;
+  double longitude   = 8;
+  double altitude    = 9;
+}
+
+// Fused / filtered position output
+message PositionOutput {
+  string  request_id = 1;
+  int64   timestamp  = 2;
+  double  latitude   = 3;
+  double  longitude  = 4;
+  double  altitude   = 5;
+  double  vel_x      = 6;
+  double  vel_y      = 7;
+  double  vel_z      = 8;
+  bool    anomaly    = 9;
+  double  accuracy   = 10;
+}
+
+// QPS streaming service
+service Qps {
+  rpc StreamPosition(stream SensorInput) returns (stream PositionOutput);
+}
