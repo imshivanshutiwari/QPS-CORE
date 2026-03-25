@@ -9,7 +9,7 @@ pub struct SensorFusionEngine;
 
 impl SensorFusionEngine {
     /// Fuse a slice of validated sensor readings into a single magnetic
-    /// field vector [x, y, z] in nanoTesla.
+    /// field vector [x, y, z] in microTesla (µT).
     ///
     /// Returns [`PipelineError::EmptyFusion`] if the slice is empty or all
     /// weights are effectively zero.

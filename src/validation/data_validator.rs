@@ -17,7 +17,7 @@ impl DataValidator {
             return Err(ValidationError::LowQuality(reading.quality));
         }
 
-        // Magnetic field components must be in ±1000 nT
+        // Magnetic field components must be in ±1000 µT
         for &v in &reading.magnetic_field {
             if v.abs() > 1000.0 {
                 return Err(ValidationError::OutOfBounds(v));

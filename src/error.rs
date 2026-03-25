@@ -4,7 +4,7 @@ use thiserror::Error;
 pub enum ValidationError {
     #[error("quality score {0:.2} is below threshold 0.80")]
     LowQuality(f64),
-    #[error("magnetic field component {0:.2} nT is out of valid range ±1000 nT")]
+    #[error("magnetic field component {0:.2} µT is out of valid range ±1000 µT")]
     OutOfBounds(f64),
     #[error("timestamp is zero or negative")]
     InvalidTimestamp,

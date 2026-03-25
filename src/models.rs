@@ -8,7 +8,7 @@ pub struct SensorReading {
     pub sensor_id:      String,
     /// Unix nanoseconds
     pub timestamp:      i64,
-    /// Magnetic field vector [x, y, z] in nanoTesla
+    /// Magnetic field vector [x, y, z] in microTesla (µT)
     pub magnetic_field: [f64; 3],
     /// Quality score 0.0–1.0
     pub quality:        f64,
